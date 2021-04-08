@@ -1,0 +1,66 @@
+{{#extend "body"}}
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/admin">D3 Visualization</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/admin">Admin</a></li>
+                    <li class="active"><a href="/colors">Color Table</a></li>
+                    <li><a href="/login">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="starter-template">
+            <div class="row">
+                <div class="col-xs-3 col-sm-3 col-lg-3">
+                    mood
+                </div>
+                <div class="col-xs-3 col-sm-3 col-lg-3">
+                    energy
+                </div>
+                <div class="col-xs-3 col-sm-3 col-lg-3">
+                    valence
+                </div>
+                <div class="col-xs-3 col-sm-3 col-lg-3" style="background:rgb({{color.[0]}},{{color.[1]}},{{color.[2]}})">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3 col-sm-3 col-lg-3">
+                    &nbsp;
+                </div>
+                <div class="col-xs-3 col-sm-3 col-lg-3">
+                    &nbsp;
+                </div>
+                <div class="col-xs-3 col-sm-3 col-lg-3">
+                    &nbsp;
+                </div>
+                <div class="col-xs-3 col-sm-3 col-lg-3" style="background:rgb({{color.[0]}},{{color.[1]}},{{color.[2]}})">
+                    &nbsp;
+                </div>
+            </div>
+            {{#each moods}}
+            <div class="row">
+                <div class="col-xs-3 col-sm-3 col-lg-3">
+                    {{mood}}
+                </div>
+                <div class="col-xs-3 col-sm-3 col-lg-3">
+                    {{energy}}
+                </div>
+                <div class="col-xs-3 col-sm-3 col-lg-3">
+                    {{valence}}
+                </div>
+                <div class="col-xs-3 col-sm-3 col-lg-3" style="background:rgb({{color.[0]}},{{color.[1]}},{{color.[2]}})">
+                    rgb({{color.[0]}},{{color.[1]}},{{color.[2]}})
+                </div>
+            </div>
+            <hr style="border-color:rgb({{color.[0]}},{{color.[1]}},{{color.[2]}})">
+            {{/each}}
+        </div>
+    </div>
+    </div>
+{{/extend}}

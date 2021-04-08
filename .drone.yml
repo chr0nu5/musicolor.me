@@ -1,0 +1,11 @@
+build:
+  image: ubuntu:14.04
+  commands:
+    - sudo apt-get update
+    - sudo apt-get install curl git-core
+    - curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+    - sudo apt-get install nodejs
+    - cd node
+    - npm install
+    - echo '{}' > config.json
+    - npm run coverage

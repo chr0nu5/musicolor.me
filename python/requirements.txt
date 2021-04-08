@@ -1,0 +1,2 @@
+-e git://github.com/chr0nu5/librosa.git#egg=librosa
+scikits.samplerate

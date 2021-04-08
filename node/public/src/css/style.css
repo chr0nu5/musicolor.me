@@ -1,0 +1,817 @@
+/*------------------------------------------
+CONTENTS:
+
+1 - RESET
+2 - TYPOGRAPHY
+3 - BASE
+4 - HEADER
+5 - INTRO
+6 - MUSIC INPUT
+7 - MOODS
+8 - MEDIA QUERIES
+9 - ANIMATIONS
+10 - MOOD SCROLLER STYLES
+11 - ABOUT
+12 - MEDIA QUERIES
+
+/*------------------------------------------
+/* 1 - RESET
+/*------------------------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    vertical-align: baseline;
+}
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*------------------------------------------
+/* 2 - TYPOGRAPHY
+/*------------------------------------------*/
+
+@font-face {
+    font-family: 'pragmatamedium';
+    src: url('../font/pragmata_medium-webfont.eot');
+    src: url('../font/pragmata_medium-webfont.eot?#iefix') format('embedded-opentype'), url('../font/pragmata_medium-webfont.woff2') format('woff2'), url('../font/pragmata_medium-webfont.woff') format('woff'), url('../font/pragmata_medium-webfont.ttf') format('truetype'), url('../font/pragmata_medium-webfont.svg#pragmatamedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*------------------------------------------
+/* 3 - BASE
+/*------------------------------------------*/
+
+html {
+    width: 100%;
+    height: 100%;
+    font-family: 'pragmatamedium', sans-serif;
+}
+body {
+    background: #000;
+    font-family: 'pragmatamedium', sans-serif;
+    text-decoration: none;
+}
+body, html {
+    overflow: hidden;
+}
+h1 {
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 17px;
+    margin-left: 10px;
+    display: inline;
+    font-size: 20px;
+    opacity: 0;
+}
+.wrap {
+    padding: 50px;
+    position: relative;
+    z-index: 99999;
+    height: 800px;
+}
+
+/* Last.fm Login */
+
+.lastlogo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -150px;
+    margin-top: -113px;
+}
+
+/*------------------------------------------
+/* 4 - HEADER
+/*------------------------------------------*/
+
+header {
+    overflow: auto;
+}
+header .logo {
+    background: url(../img/d3.png);
+    text-indent: -9999px;
+    width: 66px;
+    height: 66px;
+    display: block;
+    float: left;
+}
+header a {
+    float: right;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+}
+.main {
+    color: #fff;
+    text-transform: uppercase;
+    width: 100%;
+    /*display: table;*/
+}
+.moods, .music, .moodfinal {
+    width: 100%;
+}
+
+/*------------------------------------------
+/* 5 - INTRO
+/*------------------------------------------*/
+
+.moods {
+    margin-top: 150px;
+}
+.moods h3 {
+    opacity: 0;
+}
+.moods h3:nth-child(1n) {
+    -webkit-animation-delay: 1s;
+    /* Chrome, Safari, Opera */
+    animation-delay: 1s;
+}
+.moods h3:nth-child(2n) {
+    -webkit-animation-delay: 3.5s;
+    /* Chrome, Safari, Opera */
+    animation-delay: 3.5s;
+}
+.moods h3:nth-child(3n) {
+    -webkit-animation-delay: 4.5s;
+    /* Chrome, Safari, Opera */
+    animation-delay: 5.5s;
+}
+
+/*------------------------------------------
+/* 6 - MUSIC INPUT
+/*------------------------------------------*/
+
+input {
+    -webkit-animation-delay: 2.5s;
+    /* Chrome, Safari, Opera */
+    animation-delay: 2.5s;
+}
+h3 {
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 70px;
+}
+.music {
+    opacity: 0;
+    position: absolute;
+    top: 25%;
+    transform: translateY(-50%);
+    left: 0;
+}
+.music p{
+    text-align: center;
+}
+h4 {
+    font-size: 15px;
+    text-transform: initial;
+    text-align: center;
+    margin-bottom: 80px;
+}
+.musiclist {
+    width: 800px;
+    margin: 0 auto;
+    background: #101010;
+    color: #fff;
+    font-size: 20px;
+    max-height: 300px;
+    overflow: auto;
+}
+.musiclist li {
+    height: 100px;
+    cursor: pointer;
+}
+.musiclist li:hover {
+    background: #0d0d0d;
+}
+.musiclist li:active {
+    background: #000;
+}
+.musiclist li:hover .song {
+    color: #fff;
+}
+.musiclist li img {
+    margin: 20px;
+    width: 60px;
+    height: 60px;
+    float: left;
+}
+.musiclist li span {
+    display: inherit;
+    color: #3f3f3f;
+}
+.musiclist li .song {
+    font-size: 25px;
+    padding-top: 15px;
+    max-width: 678px;
+    color: #4c4c4c;
+    text-overflow: ellipsis;
+    width: 778px;
+    height: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.musicList li.notFound span {
+    text-align: center !important;
+}
+.musiclist::-webkit-scrollbar {
+    width: 12px;
+}
+.musiclist::-webkit-scrollbar-track {
+    background-color: #101010;
+    border-left: 1px solid #232323;
+}
+.musiclist::-webkit-scrollbar-thumb {
+    background-color: #3c3c3c;
+}
+.musiclist::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa;
+}
+input[type="text"] {
+    padding: 10px;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1130px;
+    height: 75px;
+    background: none;
+    color: #fff;
+    border: none;
+    text-transform: uppercase;
+    text-align: left;
+    font: 50px 'pragmatamedium', sans-serif;
+}
+input[type="text"]:focus {
+    outline: none;
+    background: rgba(64, 64, 64, 0.4);
+    transition: all 500ms;
+    -webkit-transition: all 500ms;
+    -moz-transition: all 500ms;
+    -o-transition: all 500ms;
+}
+::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: #fff;
+    font: 60px 'pragmatamedium', sans-serif;
+    line-height: 60px;
+}
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #fff;
+    font: 60px 'pragmatamedium', sans-serif;
+    line-height: 60px;
+}
+:-ms-input-placeholder {
+    /* IE 10+ */
+    color: #fff;
+    font: 60px 'pragmatamedium', sans-serif;
+    line-height: 60px;
+}
+:-moz-placeholder {
+    /* Firefox 18- */
+    color: #fff;
+    font: 60px 'pragmatamedium', sans-serif;
+    line-height: 60px;
+}
+
+/*------------------------------------------
+/* 7 - MOODS
+/*------------------------------------------*/
+
+.moodfinal {
+    opacity: 0;
+    position: absolute;
+    top: 25%;
+    transform: translateY(-50%);
+    text-align: center;
+    width: 90%;
+    visibility: hidden;
+    z-index: 99999;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .moodfinal {
+        visibility: visible;
+    }
+}
+.music, .moodfinal {
+    opacity: 0;
+}
+@-moz-document url-prefix() {
+    .music, .moodfinal {
+        visibility: hidden;
+    }
+}
+.moodfinal h4 {
+    -webkit-animation-delay: 1s;
+    /* Chrome, Safari, Opera */
+    animation-delay: 1s;
+}
+.moodfinal #scroll-container {
+    -webkit-animation-delay: 2s;
+    /* Chrome, Safari, Opera */
+    animation-delay: 2s;
+}
+.moodfinal .share {
+    -webkit-animation-delay: 3s;
+    /* Chrome, Safari, Opera */
+    animation-delay: 3s;
+}
+.moodfinal .start {
+    -webkit-animation-delay: 4s;
+    /* Chrome, Safari, Opera */
+    animation-delay: 4s;
+}
+.moodfinal .mood {
+    font-size: 50px;
+    display: block;
+}
+.moodfinal a {
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+}
+.moodfinal a:hover {
+    color: #ccc;
+}
+.moodfinal .share {
+    display: block;
+    margin: 0 auto 5px;
+    border: 2px solid #fff;
+    border-radius: 40px;
+    padding: 5px;
+    width: 200px;
+    opacity: 0;
+}
+.moodfinal .start {
+    display: block;
+    margin-top: 20px;
+    text-decoration: underline;
+    opacity: 0;
+}
+.github-button {
+    margin-top: 20px;
+}
+
+/*------------------------------------------
+/* 8 - FOOTER
+/*------------------------------------------*/
+
+footer {
+    padding: 0px 50px 50px 50px;
+    width: 100%;
+    padding: 50px;
+    color: #464646;
+    position: fixed;
+    bottom: 0;
+    text-transform: uppercase;
+    left: 0;
+    z-index: 1;
+}
+footer a {
+    color: #747474;
+    text-decoration: none;
+}
+footer .api {
+    float: right;
+}
+footer span {
+    line-height: 27px;
+}
+footer .spotifybrand img {
+    width: 90px;
+    display: block;
+    float: right;
+    margin-left: 15px;
+}
+footer .player {
+    position: absolute;
+    left: 50px;
+    bottom: 50px;
+    width:50%;
+}
+footer .player span.song {
+    color: #ffffff;
+    display: block;
+}
+footer .player img {
+    float: left;
+    margin: 0px 10px 0px 0px;
+}
+
+/*------------------------------------------
+/* 9 - ANIMATIONS
+/*------------------------------------------*/
+
+.hide {
+    /*display: inline-block;*/
+    -webkit-animation: hide 0.5s ease-out;
+    -webkit-animation-fill-mode: forwards;
+    animation: hide 1s ease-out;
+    animation-fill-mode: forwards;
+}
+.show {
+    /*display: inline-block;*/
+    -webkit-animation: show 0.5s ease-out;
+    -webkit-animation-fill-mode: forwards;
+    animation: show 0.5s ease-out;
+    animation-fill-mode: forwards;
+}
+@-moz-document url-prefix() {
+  .show {
+    visibility: visible;
+  }
+}
+@keyframes hide {
+    0% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+        transform: translateY(0%);
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transform: translateY(-15%);
+        transform: translateY(-15%);
+    }
+}
+@keyframes show {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(15%);
+        transform: translateY(15%);
+    }
+    50% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+        transform: translateY(0%);
+        visibility: visible;
+    }
+}
+@-webkit-keyframes hide {
+    0% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+        transform: translateY(0%);
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transform: translateY(-15%);
+        transform: translateY(-15%);
+    }
+}
+@-webkit-keyframes show {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(15%);
+        transform: translateY(15%);
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+        transform: translateY(0%);
+    }
+}
+
+/*------------------------------------------
+/* 10 - MOOD SCROLLER STYLES
+/*------------------------------------------*/
+
+#scroll-container {
+    overflow: hidden;
+    max-width: 100%;
+    margin: auto;
+    top: -60px;
+    left: 10px;
+    position: relative;
+    min-height: 200px;
+}
+.wrap-container {
+    position: relative;
+    max-height: 270px;
+    width: 100%;
+    max-width: 100%;
+    margin: auto;
+    /* background: #eee; */
+    padding-right: 20px;
+    /*    mask: url(../img/mask.svg);*/
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, rgba(0, 0, 0, 0)), color-stop(0.25, rgba(0, 0, 0, 1)), color-stop(0.50, rgba(0, 0, 0, 1)), color-stop(0.75, rgba(0, 0, 0, 1)), color-stop(1.00, rgba(0, 0, 0, 0)));
+    overflow: hidden;
+    top: -62px;
+    left: 10px;
+}
+.scroll-container {
+    height: 260px;
+}
+.wrap-container ul {
+    list-style: none;
+    position: relative;
+    transition: transform .3s;
+    top: 50px;
+}
+.wrap-container ul, .wrap-container ul li {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.wrap-container ul li {
+    height: 60px;
+    line-height: 50px;
+    transition: transform .3s;
+    overflow: hidden;
+    color: #919191;
+    /*font-size: 20px;*/
+}
+.wrap-container ul li:last-of-type {
+    padding-bottom: 50px;
+}
+.wrap-container ul li.active .item {
+    transform: scale(2.9);
+    color: #fff;
+    /*font-size: 50px;*/
+}
+.wrap-container ul li .item {
+    position: relative;
+    transition: transform 200ms;
+    display: inline-block;
+    font-size: 20px;
+    /*font-size: 25px;*/
+}
+
+/* animated background */
+
+audio {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    bottom: -100px;
+    width: 100%;
+}
+#container {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    overflow: hidden;
+    z-index: 0;
+}
+canvas {
+    opacity: 0.6;
+    margin-left: -20px;
+    margin-top: -15px;
+}
+
+/*------------------------------------------
+/* 11 - ABOUT
+/*------------------------------------------*/
+
+
+/* Overlay style */
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #000;
+    color: #fff;
+    z-index: 9999;
+}
+.overlay-scale {
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    transform: scale(0.9);
+    -webkit-transition: -webkit-transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
+    -moz-transition: -moz-transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
+    -ms-transition: -ms-transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
+    -o-transition: -o-transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
+    transition: transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
+}
+.overlay-scale.open {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
+    -moz-transition: -moz-transform 0.4s, opacity 0.4s;
+    -ms-transition: -ms-transform 0.4s, opacity 0.4s;
+    -o-transition: -o-transform 0.4s, opacity 0.4s;
+    transition: transform 0.4s, opacity 0.4s;
+}
+.overlay-close {
+    position: absolute;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    top: 30px;
+    right: 30px;
+    text-indent: -9999px;
+}
+.overlay-close:before, .overlay-close:after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    margin-top: -1px;
+    height: 6px;
+    margin-top: -6px;
+    background: #fff;
+    transition: background 150ms ease-out;
+    -moz-transition: background 150ms ease-out;
+    -ms-transition: background 150ms ease-out;
+    -o-transition: background 150ms ease-out;
+    transition: background 150ms ease-out;
+}
+.overlay-close:before {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.overlay-close:after {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.overlay-close:hover::before, .overlay-close:hover::after {
+    background: #636363;
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(0.5);
+    transform: scale(0.5);
+}
+.about, .language {
+    position: absolute;
+    top: 18px;
+    color: #636363;
+    font-size: 0.9em;
+}
+.about {
+    right: 18px;
+}
+.language {
+    left: 18px;
+}
+.about a, .language a {
+    color: #bc978a;
+    position: relative;
+    text-decoration: none;
+}
+.readme {
+    width: 380px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -190px;
+    margin-top: -190px;
+}
+.readme p {
+    color: #636363;
+    line-height: 1.6em;
+    margin-bottom: 10px;
+}
+.readme p a, .featured {
+    color: #464646;
+    position: relative;
+    text-decoration: none;
+}
+.featured:hover {
+    color: #949494;
+}
+.featured:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    margin-top: 2px;
+    width: 100%;
+    transition: width 100ms ease-out;
+}
+.featured:after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+    background: #464646;
+    transition: width .5s ease-out;
+    margin-top: 2px;
+}
+.featured:hover:before {
+    width: 0%;
+    background: #949494;
+    transition: width .5s ease-out;
+    margin-top: 2px;
+}
+.featured:hover:after {
+    width: 0%;
+    background: transparent;
+    transition: width 0s ease-out;
+    margin-top: 2px;
+}
+
+/*------------------------------------------
+/* 12 - MEDIA QUERIES
+/*------------------------------------------*/
+
+@media screen and (max-width: 640px) {
+    body {
+        overflow: auto;
+        height: 100%;
+    }
+    .wrap {
+        padding: 30px;
+        height: auto;
+    }
+    input[type="text"] {
+        font: 40px 'pragmatamedium', sans-serif;
+        width: 88%;
+    }
+    ::-webkit-input-placeholder {
+        /* Chrome/Opera/Safari */
+        color: #fff;
+        font: 40px 'pragmatamedium', sans-serif;
+        line-height: 40px;
+    }
+    ::-moz-placeholder {
+        /* Firefox 19+ */
+        color: #fff;
+        font: 40px 'pragmatamedium', sans-serif;
+        line-height: 40px;
+    }
+    :-ms-input-placeholder {
+        /* IE 10+ */
+        color: #fff;
+        font: 40px 'pragmatamedium', sans-serif;
+        line-height: 40px;
+    }
+    :-moz-placeholder {
+        /* Firefox 18- */
+        color: #fff;
+        font: 40px 'pragmatamedium', sans-serif;
+        line-height: 40px;
+    }
+    .musiclist {
+        width: 330px;
+    }
+    .musiclist li {
+        height: 100px;
+    }
+    .musiclist li .song {
+        max-width: 210px;
+    }
+    .moodfinal {
+        left: 15px;
+        top: 20%;
+    }
+    .moodfinal h4 {
+        padding-top: 10px;
+    }
+    .readme {
+        width: 280px;
+        margin-left: -140px;
+    }
+    audio {
+        display: none;
+    }
+    footer {
+        opacity: 0;
+    }
+}

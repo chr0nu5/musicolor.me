@@ -1,0 +1,33 @@
+{{#extend "body"}}
+    <div class="container search">
+        <form role="form" action="/get_song" method="post" id="searchSong">
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-lg-6">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" id="search-query" placeholder="Linkin Park" class="form-control artist" tabindex="1">
+                            <span class="input-group-btn">
+                                <button class="btn" onclick="return false;" style="cursor:default">
+                                    <span class="fui-search" style="color:white"></span>
+                            </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-lg-6">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" id="search-query" placeholder="Numb" class="form-control song" tabindex="2">
+                            <span class="input-group-btn">
+                                <button class="btn" type="submit">
+                                    <span class="fui-search"></span>
+                            </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="container"></div>
+{{/extend}}

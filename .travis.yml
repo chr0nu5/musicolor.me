@@ -1,0 +1,5 @@
+language: node_js
+node_js:
+  - "5.6.0"
+script: cd node && npm install && touch config.json && echo '{}' > config.json && mkdir .nyc_output && npm run coverage
+after_success: node_modules/.bin/nyc report --reporter=text-lcov | node_modules/.bin/coveralls

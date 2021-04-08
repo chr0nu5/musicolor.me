@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name=author content="D3 - Digital Producer">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Translate your music into a mood.">
+    <meta name="keywords" content="music, color, mood, feelings, spotify, lastfm">
+    <meta itemprop="name" content="Music Mood">
+    <meta itemprop="url" content="http://musicmood.me/">
+    <meta itemprop="image" content="http://musicmood.me/build/img/cover.png">
+    <meta itemprop="description" content="Translate your music into a mood.">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Music Mood" />
+    <meta property="og:url" content="http://musicmood.me/">
+    <meta property="og:image" content="http://musicmood.me/build/img/cover.png" />
+    <meta property="og:site_name" content="Music Mood" />
+    <meta property="og:description" content="Translate your music into a mood." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Music Mood" />
+    <meta name="twitter:description" content="Translate your music into a mood." />
+    <meta name="twitter:image:src" content="http://musicmood.me/build/img/cover.png" />
+    <link rel="stylesheet" href="/build/css/style.css">
+    <link rel="icon" href="/build/img/d3.png">
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <a href="/" class="logo">D3.do</a>
+            <h1 class="title hide">MusicMood</h1>
+            <a id="trigger-overlay" class="featured" href="#">about</a>
+        </header>
+        <div class="overlay overlay-scale">
+            <a href="#" class="overlay-close">Close</a>
+            <div class="readme">
+                <p>How to relate your daily songs to how you feel?</p>
+                <p>We have always used several resources to identify and share our feelings. That need to share this information to feel part of something, to build connections and enter the whole.</p>
+                <p>In order to do so, we have to identify our own patterns, our day-to-day actions. How we walk, what we say, what we listen to everyday; in order to understand how we are feeling.</p>
+            </div>
+        </div>
+        <div class="main">
+            <section class="moods">
+                <h3 class="show firstmood">Quiet?</h3>
+                <h3 class="show secondmood">Peaceful?</h3>
+                <h3 class="show thirthmood">Cool?</h3>
+            </section>
+            <section class="music hide">
+                <h4>Translate your music into a mood.</h4>
+                {% if user %}
+                <input type="text" placeholder="Type the song that is in your mind" class="songSearch" autofocus>
+                <ul class="musiclist hide"></ul>
+                {% else %}
+                <p>
+                    <a href="/auth/spotify">
+                        <img src="/build/img/login-button.png" alt="Spotify Login">
+                    </a>
+                </p>
+                {% endif %}
+            </section>
+            <section class="moodfinal hide">
+                <h4>This is the feeling unveild by your song: <span class="song_name"></span></h4>
+                <div id="scroll-container hide">
+                    <div class="wrap-container" id="wrap-scroll">
+                        <ul id="ul-scroll">
+                            {% for mood in moods %}
+                            <li>
+                                <span class="item">{{mood.mood}}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <a class="share hide" href="http://twitter.com/share?text=MusicMood&url=http://musicmood.me" target="_blank">Share</a>
+                <a href="#" class="share hide listen" target="_blank">Playlist</a>
+                <a href="#" class="start hide">Start over</a>
+            </section>
+        </div>
+        <footer>
+            <div class="player hide">
+                <img src="" width="80" height="80">
+                <span class="song"></span>
+                <span class="artist"></span>
+            </div>
+            <a href="https://github.com/d3estudio/musicmood.me" class="featured">made with <3 by D3</a>
+            <div class="api">
+                <span>Created using the api of</span>
+                <a href="#" class="spotifybrand">
+                    <img src="/build/img/spotifylogo.png" alt="Spotify Logo">
+                </a>
+            </div>
+        </footer>
+    </div>
+    <div id="container"></div>
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.6.1/jquery.lettering.min.js'></script>
+    <script src='/build/js/sketch.min.js'></script>
+    <script src="/supershape/lib/dat.gui.min.js"></script>
+    <script src="/supershape/lib/three.js/Three.js"></script>
+    <script src="/supershape/lib/three.js/Detector.js"></script>
+    <script src="/supershape/lib/threex/THREEx.WindowResize.js"></script>
+    <script src="/supershape/lib/three.js/ShaderExtras.js"></script>
+    <script src="/supershape/lib/three.js/postprocessing/EffectComposer.js"></script>
+    <script src="/supershape/lib/three.js/postprocessing/RenderPass.js"></script>
+    <script src="/supershape/lib/three.js/postprocessing/ShaderPass.js"></script>
+    <script src="/supershape/lib/three.js/postprocessing/MaskPass.js"></script>
+    <script src="/supershape/js/variables.js" type="text/javascript"></script>
+    <script src="/supershape/js/objects.js" type="text/javascript"></script>
+    <script src="/supershape/js/eventHandler.js" type="text/javascript"></script>
+    <script src="/supershape/js/setup.js" type="text/javascript"></script>
+    <script src="/build/js/moodboard.js" type="text/javascript"></script>
+    <script src="/build/js/classie.js"></script>
+    <script src="/build/js/main.js"></script>
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-74495247-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+
+</html>
